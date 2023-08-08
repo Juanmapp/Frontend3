@@ -1,0 +1,10 @@
+ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+}
+
+ul li img {
+    width: 200px;
+    height: 200px;
+}
