@@ -1,0 +1,27 @@
+form {
+    display: flex;
+    flex-direction: column;
+    border: 1px hsl(0, 0%, 3%) solid;
+    background-color: rgb(192, 187, 187);
+    padding: 50px;
+    border-radius: 10px;
+}
+
+input {
+    padding: 5px;
+    margin: 5px;
+    border-radius: 7px;
+    
+}
+
+h2 {
+    color: white;
+    padding-bottom: 20px;
+    margin-top: 0px;
+}
+
+button {
+    margin-top: 25px;
+    background-color: BLUE;
+    color: rgb(0, 0, 0);
+}

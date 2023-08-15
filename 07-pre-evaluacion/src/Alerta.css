@@ -1,0 +1,8 @@
+p {
+    color: red;
+}
+.alert {
+    margin-top: 15px;
+    border: 1px red solid;
+    border-radius: 10px;
+}

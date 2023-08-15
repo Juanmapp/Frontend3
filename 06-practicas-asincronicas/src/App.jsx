@@ -11,6 +11,7 @@ function App() {
     <>
       <h2>Formulario</h2>
       <Rejuvenecedor/>
+    
     </>
   )
 }
