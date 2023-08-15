@@ -1,6 +1,6 @@
 import './App.css'
 import Productos from './Productos'
-import {products } from "./mocks/productos.json"
+import { products } from "./mocks/productos.json"
 
 
 function App() {

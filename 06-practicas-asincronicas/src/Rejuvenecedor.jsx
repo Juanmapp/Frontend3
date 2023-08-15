@@ -1,10 +1,10 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import "./Rejuvenecedor.css"
 
 export default function Rejuvenecedor() { 
 
     const [userName, setUserName] = useState("")
-    const [userAge, setUserAge] = useState("")
+    const [userAge, setUserAge] = useState(0)
 
     const handleChangeUser = (e) => {
         setUserName(e.target.value)
@@ -13,6 +13,8 @@ export default function Rejuvenecedor() {
     const handleChangeAge = (e) => {
         setUserAge(e.target.value)
     }
+
+
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -24,15 +26,16 @@ export default function Rejuvenecedor() {
         if (!isValidUser || !isValidAge) {
             alert("Algun dato ingresado es incorrecto")
         } else {
-            console.log(userAge);
-        setUserAge((userAge) => userAge - 10)
-        // Porque no se modifica la edad del usuario
+            setUserAge((prevUserAge) => prevUserAge - 10)
         console.log(userAge);
         alert(`Bienvenido ${userName}, tu nueva edad es de ${userAge}`)
        document.querySelector(".form").reset()
        // Porque no se resetea el form
     }
+    console.log(userAge);
     } 
+    
+    
 
     const validateUser = (userName) => {
         const withOutSpaces = userName.trim()
@@ -62,12 +65,13 @@ export default function Rejuvenecedor() {
         <form onSubmit={handleSubmit} className="form">
             
             <p>Ingrese su nombre</p>
-            <input type="text" placeholder="Nombre de usuario" value={userName} onChange={handleChangeUser}/>
+            <input type="text" placeholder="Nombre de usuario"  onChange={handleChangeUser}/>
             <p>Ingrese su edad</p>
-            <input type="text" placeholder="Ingrese su edad" value={userAge} onChange={handleChangeAge} />
+            <input type="text" placeholder="Ingrese su edad"  onChange={handleChangeAge} />
             
 
             <button type="submit" >Enviar</button>
+            
         </form>
     )
  } 
