@@ -1,34 +1,40 @@
 import { useState } from 'react'
-import Form from "./Form.jsx"
-import Card from "./Card"
-import Alerta from './Alerta.jsx'
+import Form from "./components/Form.jsx"
+import Card from "./components/Card.jsx"
+import Alerta from './components/Alerta.jsx'
 
 import './App.css'
 
-// let component = null
+
 
 function App() {
 
   const [usuario, setUsuario] = useState({})
+  const [mostrarCard, setMostrarCard] = useState(false);
+  const [mostrarAlerta, setMostrarAlerta] = useState(false)
 
   const agregarUsuario = (user) => {
     setUsuario(user)
+    console.log(user.cancion.length);
+    if (user.cancion.length > 2 && user.artista.length > 5 ) {
+      setMostrarCard(true)
+      setMostrarAlerta(false)
+    }
+    else {
+      setMostrarCard(false)
+      setMostrarAlerta(true)
+    }
     
   }
-  
-  
-  // const validacionDeDatos = (usuario) => {
-  //   const cancionSinEspacios = usuario.cancion.trim()
-   
-  // if ( cancionSinEspacios.length > 2 || usuario.artista.length > 5) {
-  //   return true
-  // } return false }
+
     
   return (
     <>
       
-      <Form onAddUser={agregarUsuario} usuario={usuario}/>
-       <Card usuario={usuario}  />
+      <Form onAddUser={agregarUsuario} />
+      {mostrarCard&&<Card usuario={usuario} />}
+      {mostrarAlerta&& <Alerta/>}
+
     </>
   )
 }

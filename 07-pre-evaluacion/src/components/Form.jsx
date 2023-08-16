@@ -1,6 +1,6 @@
 import { useState } from "react"
-import "./form.css"
-export default function Form({onAddUser, usuario}) {
+import "../styles/form.css"
+export default function Form({onAddUser}) {
 
     const [nombre, setNombre] = useState("")
     const [cancion, setCancion] = useState("")
@@ -9,29 +9,20 @@ export default function Form({onAddUser, usuario}) {
     function handleSubmit (e){
         e.preventDefault()
         
-        if(validacionDeDatos == true) {
+       
         onAddUser({nombre,cancion,artista})
+        if (nombre < 2) {
+
+        }
         setNombre("")
         setCancion("")
         setArtista("")
         console.log("excelente");
         
-        }
-        else {
-           
-                console.log("algo fallo");
-            
-        }
+ 
     }
 
-    
 
-    function validacionDeDatos() {
-          
-        if ( usuario.cancion.length > 2) {
-          return true
-        } else {
-            return false }}
 
     
 
