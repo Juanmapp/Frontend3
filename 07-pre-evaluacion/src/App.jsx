@@ -15,8 +15,9 @@ function App() {
 
   const agregarUsuario = (user) => {
     setUsuario(user)
-    console.log(user.cancion.length);
-    if (user.cancion.length > 2 && user.artista.length > 5 ) {
+    
+    let cancionSinEspacios = user.cancion.trim()
+    if (cancionSinEspacios.length > 2 && user.artista.length > 5 ) {
       setMostrarCard(true)
       setMostrarAlerta(false)
     }

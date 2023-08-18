@@ -1,4 +1,4 @@
-import "../styles/Card.css"
+import "./card.css"
 
 export default function Card({usuario}) {
 
