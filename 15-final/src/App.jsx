@@ -5,10 +5,15 @@ import Home from "./Routes/Home";
 import Detail from "./Routes/Detail";
 import Favs from "./Routes/Favs";
 import Contact from "./Routes/Contact";
+import { ContextGlobal } from "./Components/utils/global.context";
+import { useContext } from "react";
 
 function App() {
+  const { state, dispatch } = useContext(ContextGlobal);
+
+  const { theme } = state;
   return (
-    <div className="App">
+    <div className={`App ${theme === "dark" ? "dark" : ""}`}>
       <Navbar />
       <Routes>
         <Route path="home" element={<Home />} />
