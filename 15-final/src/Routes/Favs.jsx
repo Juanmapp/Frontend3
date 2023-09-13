@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Card from "../Components/Card";
 import { ContextGlobal } from "../Components/utils/global.context";
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
@@ -7,10 +7,17 @@ const Favs = () => {
   const { state } = useContext(ContextGlobal);
 
   const { theme } = state;
-  const dataDentist = JSON.parse(localStorage.getItem("dentists"));
-  console.log(dataDentist);
 
-  // Solucionar el problema de que la card se sigue renderizando aunque lo quites de favorito
+  // const [dataDentist, setFavoriteDentists] = useState();
+
+  // useEffect(() => {
+  const dataDentist = JSON.parse(localStorage.getItem("dentists"));
+  //   if (dataDentist) {
+  //     setFavoriteDentists(dataDentist);
+  //   }
+  // }, []);
+
+  // Solucionar el problema de que la card se sigue renderizando aunque lo quites de favorito y que al renderizarse inicializa como "Agregar a favoritos"
 
   return (
     <div className={theme === "dark" ? "dark" : ""}>

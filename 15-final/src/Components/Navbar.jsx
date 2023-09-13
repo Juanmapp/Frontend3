@@ -14,7 +14,7 @@ const Navbar = () => {
   };
   return (
     <nav className={theme === "dark" ? "dark" : ""}>
-      <Link to="/Home">Home</Link>
+      <Link to="/">Home</Link>
 
       <Link to="/Contacto">Contact</Link>
 

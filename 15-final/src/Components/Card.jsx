@@ -2,17 +2,19 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Card = ({ name, username, id }) => {
-  const [saved, setSaved] = useState(false);
+  const [saved, setSaved] = useState();
+
+  let dentist = {
+    dentistId: id,
+    dentistName: name,
+    dentistUsername: username,
+    save: false,
+  };
 
   const addFav = () => {
-    const dentist = {
-      dentistId: id,
-      dentistName: name,
-      dentistUsername: username,
-    };
-
     const savedDentistsJson = localStorage.getItem("dentists");
     let savedDentists = [];
+    console.log(savedDentistsJson);
 
     if (savedDentistsJson) {
       try {
@@ -32,15 +34,20 @@ const Card = ({ name, username, id }) => {
         (savedDentist) => savedDentist.dentistId === dentist.dentistId
       )
     ) {
-      savedDentists.push(dentist);
-      const updatedDentistsJson = JSON.stringify(savedDentists);
-      localStorage.setItem("dentists", updatedDentistsJson);
       setSaved(true);
+      savedDentists.push(dentist);
+
+      const updatedDentistsJson = JSON.stringify(savedDentists);
+
+      localStorage.setItem("dentists", updatedDentistsJson);
+      console.log(dentist.save);
     } else if (indexToDelete !== -1) {
       savedDentists.splice(indexToDelete, 1);
-      const updatedDentistsJson = JSON.stringify(savedDentists);
-      localStorage.setItem("dentists", updatedDentistsJson);
       setSaved(false);
+
+      const updatedDentistsJson = JSON.stringify(savedDentists);
+
+      localStorage.setItem("dentists", updatedDentistsJson);
     }
   };
 
