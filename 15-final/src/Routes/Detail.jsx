@@ -12,9 +12,11 @@ const Detail = () => {
 
   // Consumiendo el parametro dinamico de la URL deberan hacer un fetch a un user en especifico
 
-  fetch(`https://jsonplaceholder.typicode.com/users/${params.id}`)
+  useEffect(() => {
+    fetch(`https://jsonplaceholder.typicode.com/users/${params.id}`)
     .then((resp) => resp.json())
     .then((data) => setDentist(data));
+  }, [params.id])
 
   return (
     <div className={theme === "dark" ? "dark" : ""}>

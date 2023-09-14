@@ -8,14 +8,14 @@ const Favs = () => {
 
   const { theme } = state;
 
-  // const [dataDentist, setFavoriteDentists] = useState();
+  const [favorite, setFavoriteDentists] = useState();
 
-  // useEffect(() => {
   const dataDentist = JSON.parse(localStorage.getItem("dentists"));
-  //   if (dataDentist) {
-  //     setFavoriteDentists(dataDentist);
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (dataDentist) {
+      setFavoriteDentists(dataDentist);
+    }
+  }, []);
 
   // Solucionar el problema de que la card se sigue renderizando aunque lo quites de favorito y que al renderizarse inicializa como "Agregar a favoritos"
 
@@ -25,8 +25,8 @@ const Favs = () => {
       <div className="card-grid">
         {/* Deberan renderizar una Card por cada uno de ellos */}
 
-        {dataDentist &&
-          dataDentist.map((medico) => (
+        {favorite &&
+          favorite.map((medico) => (
             <Card
               key={medico.dentistId}
               name={medico.dentistName}

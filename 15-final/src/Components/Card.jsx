@@ -52,6 +52,7 @@ const Card = ({ name, username, id }) => {
   };
 
   return (
+    
     <div className="card">
       <Link key={id} to={`/dentist/${id}`}>
         {/* En cada card deberan mostrar en name - username y el id */}
@@ -67,6 +68,7 @@ const Card = ({ name, username, id }) => {
         {!saved ? "Agregar a favoritos" : "Quitar de favoritos"}
       </button>
     </div>
+    
   );
 };
 
