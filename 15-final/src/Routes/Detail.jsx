@@ -1,12 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
-import { ContextGlobal } from "../Components/utils/global.context";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Detail = () => {
-  const { state, dispatch } = useContext(ContextGlobal);
-  const { theme } = state;
-
   const params = useParams();
   const [dentist, setDentist] = useState({});
 
@@ -14,12 +10,12 @@ const Detail = () => {
 
   useEffect(() => {
     fetch(`https://jsonplaceholder.typicode.com/users/${params.id}`)
-    .then((resp) => resp.json())
-    .then((data) => setDentist(data));
-  }, [params.id])
+      .then((resp) => resp.json())
+      .then((data) => setDentist(data));
+  }, [params.id]);
 
   return (
-    <div className={theme === "dark" ? "dark" : ""}>
+    <div>
       <h1>Detail Dentist {dentist.id} </h1>
       {/* aqui deberan renderizar la informacion en detalle de un user en especifico */}
       <table className="table">

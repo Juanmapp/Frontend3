@@ -8,9 +8,27 @@ const Footer = () => {
   const { theme } = state;
   return (
     <footer className={theme === "dark" ? "dark" : ""}>
-      <p>Powered by</p>
+      <div>
+        <p>Powered by</p>
 
-      <img src="../../public/images/DH.png" alt="DH-logo" />
+        <img src="../../public/images/DH.png" alt="DH-logo" />
+      </div>
+      <div>
+        <ul type="none">
+          <li>
+            <i class="fa-brands fa-facebook"></i>
+          </li>
+          <li>
+            <i class="fa-brands fa-instagram"></i>
+          </li>
+          <li>
+            <i class="fa-brands fa-tiktok"></i>
+          </li>
+          <li>
+            <i class="fa-brands fa-whatsapp"></i>
+          </li>
+        </ul>
+      </div>
     </footer>
   );
 };

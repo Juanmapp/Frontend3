@@ -14,19 +14,22 @@ const Navbar = () => {
   };
   return (
     <nav className={theme === "dark" ? "dark" : ""}>
-      <Link to="/">Home</Link>
+      <div>
+        <h1>Clinica Odontologica</h1>
+      </div>
+      <div className="link-container">
+        <Link to="/">Home</Link>
 
-      <Link to="/Contacto">Contact</Link>
+        <Link to="/Contacto">Contact</Link>
 
-      <Link to="/Favs">Favs</Link>
+        <Link to="/Favs">Favs</Link>
 
-      {/* Este hay que hacerlo en card */}
-
-      <Outlet />
-      {/* Deberan implementar ademas la logica para cambiar de Theme con el button */}
-      <button onClick={toggleTheme}>
-        Cambiar a {theme === "light" ? "modo oscuro" : "modo claro"}
-      </button>
+        <Outlet />
+        {/* Deberan implementar ademas la logica para cambiar de Theme con el button */}
+        <button onClick={toggleTheme}>
+          Modo {theme === "light" ? "oscuro" : "claro"}
+        </button>
+      </div>
     </nav>
   );
 };

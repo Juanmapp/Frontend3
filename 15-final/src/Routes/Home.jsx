@@ -10,7 +10,7 @@ const Home = () => {
 
   const { theme, data } = state;
   return (
-    <main className={theme === "dark" ? "dark" : ""}>
+    <main>
       <h1>Home</h1>
       <div className="card-grid">
         {/* Aqui deberias renderizar las cards */}

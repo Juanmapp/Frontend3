@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import { Link } from "react-router-dom";
 
 const Card = ({ name, username, id }) => {
@@ -8,24 +9,14 @@ const Card = ({ name, username, id }) => {
     dentistId: id,
     dentistName: name,
     dentistUsername: username,
-    save: false,
   };
 
   const addFav = () => {
     const savedDentistsJson = localStorage.getItem("dentists");
     let savedDentists = [];
-    console.log(savedDentistsJson);
 
-    if (savedDentistsJson) {
-      try {
-        savedDentists = JSON.parse(savedDentistsJson);
-        if (!Array.isArray(savedDentists)) {
-          savedDentists = [];
-        }
-      } catch (error) {
-        console.error("Error al analizar JSON:", error);
-      }
-    }
+    savedDentists = JSON.parse(savedDentistsJson);
+
     const indexToDelete = savedDentists.findIndex(
       (savedDentist) => savedDentist.dentistId === dentist.dentistId
     );
@@ -40,7 +31,6 @@ const Card = ({ name, username, id }) => {
       const updatedDentistsJson = JSON.stringify(savedDentists);
 
       localStorage.setItem("dentists", updatedDentistsJson);
-      console.log(dentist.save);
     } else if (indexToDelete !== -1) {
       savedDentists.splice(indexToDelete, 1);
       setSaved(false);
@@ -52,7 +42,6 @@ const Card = ({ name, username, id }) => {
   };
 
   return (
-    
     <div className="card">
       <Link key={id} to={`/dentist/${id}`}>
         {/* En cada card deberan mostrar en name - username y el id */}
@@ -68,7 +57,6 @@ const Card = ({ name, username, id }) => {
         {!saved ? "Agregar a favoritos" : "Quitar de favoritos"}
       </button>
     </div>
-    
   );
 };
 

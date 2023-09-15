@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect } from "react";
+
 import { useState } from "react";
 
 const Form = () => {
@@ -29,9 +29,6 @@ const Form = () => {
       setError(true);
     }
   };
-  // useEffect(() => {
-  //   console.log(usuario);
-  // }, [usuario]);
 
   return (
     <div>
